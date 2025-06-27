@@ -8,22 +8,22 @@ fs.readFile("input.txt", "utf-8", (err, data) => {
     
     allLines.forEach(line => {
         const parsedLine = line.split(/\s/)
-        const level = parsedLine.map(Number)
+        const report = parsedLine.map(Number)
         
-        if (level[0] < level[1]) {
+        if (report[0] < report[1]) {
             let i = 1
-            while(i < level.length && level[i-1] < level[i] && (Math.abs(level[i-1] - level[i]) <= 3)){
+            while(i < report.length && report[i-1] < report[i] && (Math.abs(report[i-1] - report[i]) <= 3)){
                 i++
             }
-            if(i === level.length){
+            if(i === report.length){
                 safeCount++
             } 
-        } else if (level[0] > level[1]){
+        } else if (report[0] > report[1]){
             let i = 1
-            while(i < level.length && level[i-1] > level[i] && (Math.abs(level[i-1] - level[i]) <= 3)){
+            while(i < report.length && report[i-1] > report[i] && (Math.abs(report[i-1] - report[i]) <= 3)){
                 i++
             }
-            if(i === level.length){
+            if(i === report.length){
                 safeCount++
             }
         }
